@@ -19,6 +19,7 @@ class Client:
         response = urllib2.urlopen(req)
         xmlUtil = XMLUtil(response)
         loginVars['lgtoken'] = xmlUtil.getLoginToken()
+
         data = urllib.urlencode(loginVars)
         req = urllib2.Request(webConfig.wikiapi, data)
         self.sessionID = xmlUtil.getSessionID()
