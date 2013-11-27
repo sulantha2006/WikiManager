@@ -1,0 +1,6 @@
+Well ABC
+--ENDTITLE--
+{{WellABCStaticContent}}
+
+== Dynamic Content Section ==
+This area of the page can be modified. 

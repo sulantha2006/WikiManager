@@ -1,0 +1,15 @@
+Robot Page 3
+--ENDTITLE--
+This is the body of first page created by the Robot. This page is fully modifiable page. 
+
+== Section 1 ==
+This is section 1. Section 2 Follows. 
+
+== Section 2 ==
+This is section 2. Section 3 Follows.  
+
+== Section 3 ==
+This is the section 3 of the Robot created page. 
+
+== Section New ==
+This section is newly added. This is being modified later. 
