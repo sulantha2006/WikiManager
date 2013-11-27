@@ -1,0 +1,17 @@
+Bill Gates InfoBox Python Auto Test
+--ENDTITLE--
+
+{{Infobox person
+| name              = Bill Gates
+| image             = Gates.jpg
+| birth_name        = William Henry Gates III
+| birth_date        = {{birth date and age|1955|10|28}}
+| birth_place       = Seattle, Washington, US
+| occupation        = Chairman of [[Microsoft]] (non-executive)<br />Co-chair of [[Bill & Melinda Gates Foundation]]<br />Director of [[Berkshire Hathaway]]<br />CEO of [[Cascade Investment]]
+| spouse            = Melinda Gates (married 1994)
+| children          = 3
+| residence         = Medina, Washington
+| alma_mater        = Harvard University (dropped out in 1975)
+| website           = {{URL|microsoft.com/presspass/exec/billg}}
+| parents           = William H. Gates, Sr.<br />Mary Maxwell Gates
+}}
