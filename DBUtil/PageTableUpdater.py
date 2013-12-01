@@ -12,8 +12,8 @@ class PageTableUpdater:
     def updateEntity(self, entityName, entityTable, entityColumnName):
         sqlStr = ('INSERT IGNORE INTO ' + mPTConfig.managerPageTableName +
                   ' (' + mPTConfig.managerPageTableColumns['pageTitle'] +
-                  ', ' + mPTConfig.managerPageTableColumns['type'] + ')' +
+                  ', ' + mPTConfig.managerPageTableColumns['typeColumn'] + ')' +
                   ' (SELECT DISTINCT ' + entityColumnName + ' AS ' + mPTConfig.managerPageTableColumns['pageTitle'] +
-                  ', \'' + entityName + '\' AS ' + mPTConfig.managerPageTableColumns['type'] +
+                  ', \'' + entityName + '\' AS ' + mPTConfig.managerPageTableColumns['typeColumn'] +
                   ' FROM ' + entityTable + ')')
         print self.dbClient.executeQuery(sqlStr, 1)
