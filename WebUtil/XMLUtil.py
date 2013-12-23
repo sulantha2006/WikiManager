@@ -15,7 +15,11 @@ class XMLUtil:
         return self.root.find('login').attrib['sessionid']
 
     def getEditToken(self):
-        return self.root.find('query')[1][0].attrib['edittoken']
+        try:
+            return self.root.find('query')[1][0].attrib['edittoken']
+        except IndexError:
+            return self.root.find('query')[0][0].attrib['edittoken']
+
 
     def getActionSuccess(self):
         if (self.root[0].attrib['result']) == 'Success':
@@ -24,4 +28,7 @@ class XMLUtil:
             return self.root[0].attrib['info'], self.root[0].attrib['code']
 
     def printResponse(self):
-        print self.root.find('query')[1][0].attrib['edittoken']
+        try:
+            return self.root.find('query')[1][0].attrib['edittoken']
+        except IndexError:
+            return self.root.find('query')[0][0].attrib['edittoken']

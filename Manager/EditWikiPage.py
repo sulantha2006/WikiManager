@@ -4,7 +4,7 @@ from WebUtil.Client import Client
 from FileUtil.FileHandler import FileHandler
 
 fileHandler = FileHandler()
-[pageTitle, pageBody] = fileHandler.getFileContent('/home/sulantha/PycharmProjects/WikiManager/TestSources/InfoBoxTest.txt')
+[pageTitle, pageBody] = fileHandler.getFileContent('/home/sulantha/PycharmProjects/WikiManager/TestSources/125-23023_main.txt')
 
 loginSuccess = False
 editSuccess = False

@@ -36,6 +36,7 @@ class Client:
         req.add_header('Cookie', webConfig.sessionName + '=' + self.sessionID)
         response = urllib2.urlopen(req)
         xmlUtil = XMLUtil(response)
+        xmlUtil.printResponse()
         editToken = xmlUtil.getEditToken()
 
         submitVars = {'action': 'edit', 'title': safePageTitle, 'text': pageBody, 'contentformat': 'text/x-wiki',
