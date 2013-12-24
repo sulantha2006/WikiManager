@@ -44,7 +44,7 @@ class WellTableTemplateBuilder:
         wikiText += '!colspan="2"| Well Details \n'
         wikiText += '|-\n'
         wikiText += '| Well ID: ' + self.wellID + '\n'
-        wikiText += '| style="width: 50%" rowspan="' + str(numberOfRows+1) + '" | {{#display_map: ' + str(wellPrimaryData['LATITUDE_DECIMAL'])+', ' + str(wellPrimaryData['LONGITUDE_DECIMAL']) + ' | width=800px }} \n'
+        wikiText += '| style="width: 30%" rowspan="' + str(numberOfRows+1) + '" | {{#display_map: ' + str(wellPrimaryData['LATITUDE_DECIMAL'])+', ' + str(wellPrimaryData['LONGITUDE_DECIMAL']) + ' | width=500px }} \n'
         wikiText += '|-\n'
         wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['WELL_COUNTY'] + ': ' + wellPrimaryData['WELL_COUNTY'] + '\n'
         wikiText += '|-\n'
