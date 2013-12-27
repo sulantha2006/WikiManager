@@ -20,6 +20,7 @@ wellDataProperColumnNames = dict(inspection=['INSPECTION ID', 'DATE', 'CATEGORY'
                                  production=['PERIOD', 'GAS QUANTITY', 'GAS PRODUCTION DAYS', 'CONDENSATE QUANTITY', 'CONDENSATE PRODUCTION DAYS', 'OIL QUANTITY', 'OIL PRODUCTION DAYS'],
                                  waste=['PERIOD', 'TYPE', 'QUANTITY', 'UNITS', 'DISPOSAL METHOD', 'WASTE FACILITY PERMIT ID', 'WASTE FACILITY NAME', 'FACILITY ADDRESS 1', 'FACILITY ADDRESS 2', 'FACILITY CITY', 'FACILITY STATE', 'FACILITY ZIP', 'FACILITY PHONE', 'FACILITY LATITUDE', 'FACILITY LONGITUDE'])
 
+wellDataSelectiveSortingEnabled = False
 wellDataSortableColumns = dict(inspection=['DATE'],
                                production=['PERIOD', 'GAS QUANTITY', 'GAS PRODUCTION DAYS', 'CONDENSATE QUANTITY', 'CONDENSATE PRODUCTION DAYS', 'OIL QUANTITY', 'OIL PRODUCTION DAYS'],
                                waste=['PERIOD', 'QUANTITY'])

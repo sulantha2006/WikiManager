@@ -16,10 +16,13 @@ class WellTableTemplateBuilder:
 
     def buildSecondaryTemplates(self):
         def addUnsortColumn(dataType, columnName):
-            if columnName in WellDataConfig.wellDataSortableColumns[dataType]:
-                return ''
+            if WellDataConfig.wellDataSelectiveSortingEnabled:
+                if columnName in WellDataConfig.wellDataSortableColumns[dataType]:
+                    return ''
+                else:
+                    return 'class="unsortable"'
             else:
-                return 'class="unsortable"'
+                return ''
 
         wellSecondaryData = self.wellDataAccessor.getWellSecondaryData()
         for dataType in wellSecondaryData:
@@ -44,15 +47,15 @@ class WellTableTemplateBuilder:
         wikiText += '!colspan="2"| Well Details \n'
         wikiText += '|-\n'
         wikiText += '| Well ID: ' + self.wellID + '\n'
-        wikiText += '| style="width: 30%" rowspan="' + str(numberOfRows+1) + '" | {{#display_map: ' + str(wellPrimaryData['LATITUDE_DECIMAL'])+', ' + str(wellPrimaryData['LONGITUDE_DECIMAL']) + ' | width=500px }} \n'
+        wikiText += '| style="width: 50%; height=100%; align=center" rowspan="' + str(numberOfRows+1) + '" | {{#display_map: ' + str(wellPrimaryData['LATITUDE_DECIMAL'])+', ' + str(wellPrimaryData['LONGITUDE_DECIMAL']) + ' | width=100% | height=100% }} \n'
         wikiText += '|-\n'
-        wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['WELL_COUNTY'] + ': ' + wellPrimaryData['WELL_COUNTY'] + '\n'
+        wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['WELL_COUNTY'] + ': [[' + wellPrimaryData['WELL_COUNTY'] + ']]\n'
         wikiText += '|-\n'
-        wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['WELL_MUNICIPALITY'] + ': ' + wellPrimaryData['WELL_MUNICIPALITY'] + '\n'
+        wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['WELL_MUNICIPALITY'] + ': [[' + wellPrimaryData['WELL_MUNICIPALITY'] + ']]\n'
         wikiText += '|-\n'
-        wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['OPERATOR_NAME'] + ': ' + wellPrimaryData['OPERATOR_NAME'] + '\n'
+        wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['OPERATOR_NAME'] + ': [[' + wellPrimaryData['OPERATOR_NAME'] + ']]\n'
         wikiText += '|-\n'
-        wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['OPERATOR_OGO'] + ': ' + wellPrimaryData['OPERATOR_OGO'] + '\n'
+        wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['OPERATOR_OGO'] + ': [[' + wellPrimaryData['OPERATOR_OGO'] + ']]\n'
         wikiText += '|-\n'
         wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['FARM_NAME'] + ': ' + wellPrimaryData['FARM_NAME'] + '\n'
         wikiText += '|-\n'
@@ -66,7 +69,7 @@ class WellTableTemplateBuilder:
         wikiText += '|-\n'
         wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['HORIZONTAL_WELL'] + ': ' + ('Yes' if wellPrimaryData['HORIZONTAL_WELL'] is 'Y' else 'No') + '\n'
         wikiText += '|-\n'
-        wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['WELL_STATUS'] + ': ' + ('Yes' if wellPrimaryData['WELL_STATUS'] is 'Active' else 'No') + '\n'
+        wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['WELL_STATUS'] + ': ' + ('Yes' if wellPrimaryData['WELL_STATUS'] == 'Active' else 'No') + '\n'
         wikiText += '|-\n'
         wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['VIOLATION_COUNT'] + ': ' + str(wellPrimaryData['VIOLATION_COUNT']) + '\n'
         wikiText += '|-\n'
