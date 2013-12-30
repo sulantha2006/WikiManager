@@ -22,4 +22,4 @@ class WellSourceBuilder:
         source += '== Waste Data ==\n'
         source += '{{' + self.wellID + '-waste}}\n'
         source += '__NOEDITSECTION__\n'
-        self.fileHandler.writeFile(FileConfig.mainSourcePath, self.wellID+'_main.txt', self.wellID, source)
+        self.fileHandler.writeWikiSourceFile(FileConfig.mainSourcePath, self.wellID+'_main.txt', self.wellID, source)

@@ -4,7 +4,7 @@ from WebUtil.Client import Client
 from FileUtil.FileHandler import FileHandler
 
 fileHandler = FileHandler()
-[pageTitle, pageBody] = fileHandler.getFileContent('/home/sulantha/PycharmProjects/WikiManager/TestSources/125-23023_waste_Template.txt')
+[pageTitle, pageBody] = fileHandler.getWikiSourceFileContent('/home/sulantha/PycharmProjects/WikiManager/TestSources/125-23023_waste_Template.txt')
 
 loginSuccess = False
 editSuccess = False

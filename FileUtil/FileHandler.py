@@ -7,12 +7,12 @@ class FileHandler:
     def __init__(self):
         self.file = 0
 
-    def getFileContent(self, filePath):
+    def getWikiSourceFileContent(self, filePath):
         self.file = open(filePath, 'r').read()
         fileContents = self.file.split('--ENDTITLE--')
         return [str.strip(x) for x in fileContents]
 
-    def writeFile(self, filePath, fileName, contentTitle, content):
+    def writeWikiSourceFile(self, filePath, fileName, contentTitle, content):
         f = open(filePath+fileName, 'w')
         f.write(contentTitle)
         f.write('\n--ENDTITLE--\n')

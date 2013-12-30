@@ -38,7 +38,7 @@ class WellTableTemplateBuilder:
                     wikiText += '| ' + str(item) + '\n'
                 wikiText += '|-\n'
             wikiText += '|}'
-            self.fileHandler.writeFile(FileConfig.templateFilePath, self.wellID+'_'+dataType+'_Template.txt', 'Template:'+self.wellID+'-'+dataType, wikiText)
+            self.fileHandler.writeWikiSourceFile(FileConfig.templateFilePath, self.wellID+'_'+dataType+'_Template.txt', 'Template:'+self.wellID+'-'+dataType, wikiText)
 
     def buildPrimaryTemplates(self):
         wellPrimaryData = self.wellDataAccessor.getWellPrimaryData()
@@ -79,7 +79,7 @@ class WellTableTemplateBuilder:
         wikiText += '|-\n'
         wikiText += '|}'
 
-        self.fileHandler.writeFile(FileConfig.templateFilePath, self.wellID+'_Details_Template.txt', 'Template:'+self.wellID+'-Details', wikiText)
+        self.fileHandler.writeWikiSourceFile(FileConfig.templateFilePath, self.wellID+'_Details_Template.txt', 'Template:'+self.wellID+'-Details', wikiText)
 
     def buildTableTemplates(self):
         self.buildSecondaryTemplates()
