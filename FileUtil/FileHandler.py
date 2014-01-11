@@ -18,3 +18,4 @@ class FileHandler:
         f.write('\n--ENDTITLE--\n')
         f.write(content)
         f.close()
+        return filePath+fileName

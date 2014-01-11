@@ -7,7 +7,8 @@ class DBClient:
     def __init__(self):
         pass
 
-    def executeQuery(self, sqlQuery, **kwargs):
+    @staticmethod
+    def executeQuery(sqlQuery, **kwargs):
         con = msqlDB.connect(dbConfig.DBParams['host'], dbConfig.DBParams['user'], dbConfig.DBParams['userPass'],
                              dbConfig.DBParams['dbName'])
         con.autocommit(True)
@@ -18,7 +19,8 @@ class DBClient:
         else:
             return cursor.fetchall()
 
-    def executeDictionaryQuery(self, sqlQuery, **kwargs):
+    @staticmethod
+    def executeDictionaryQuery(sqlQuery, **kwargs):
         con = msqlDB.connect(dbConfig.DBParams['host'], dbConfig.DBParams['user'], dbConfig.DBParams['userPass'],
                              dbConfig.DBParams['dbName'])
         con.autocommit(True)

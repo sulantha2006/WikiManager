@@ -4,11 +4,16 @@ from Config import ManagerPageTableConfig
 
 
 class PageTableAccessor:
-    dbClient = None
-
     def __init__(self):
-        self.dbClient = DBClient()
+        pass
 
-    def getNewWells(self):
-        sqlStr = 'SELECT PAGE_NAME FROM ' + ManagerPageTableConfig.managerPageTableName + ' WHERE TYPE = \'wells\' AND NEEDS_UPDATE = 1'
-        return self.dbClient.executeQuery(sqlStr)
+    @staticmethod
+    def getNewIds():
+        newIds = {}
+        for entity in ManagerPageTableConfig.entityList:
+            sqlStr = 'SELECT ' + ManagerPageTableConfig.managerPageTableColumns['pageTitle'] + \
+                     ' FROM ' + ManagerPageTableConfig.managerPageTableName + ' WHERE ' + \
+                     ManagerPageTableConfig.managerPageTableColumns['typeColumn'] + ' = \'' + entity + '\' AND ' + \
+                     ManagerPageTableConfig.managerPageTableColumns['needsUpdate'] + ' = 1'
+            newIds[entity] = [x[0] for x in DBClient.executeQuery(sqlStr)]
+        return newIds

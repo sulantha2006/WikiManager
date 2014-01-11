@@ -1,13 +1,16 @@
 __author__ = 'sulantha'
 
-entityList = ['wells']
-entityTableDictionary = {'wells': 'well'}
-entityColumnDictionary = {'wells': 'WELL_API_COUNTY_ID'}
+entityList = ['wells', 'county', 'municipality', 'operator']
+entityTableDictionary = dict(wells='well_complete',
+                             county='county',
+                             municipality='municipality',
+                             operator='operator')
+entityColumnDictionary = dict(wells='WELL_API_COUNTY_ID',
+                              county='county_name',
+                              municipality='municipality_name',
+                              operator='operator_name')
 
 managerPageTableName = 'wikiManagerPages'
 managerPageTableColumns = dict(pageTitle='PAGE_NAME',
                                typeColumn='TYPE',
-                               templateCreated='TEMPLATE_CREATED',
-                               sourceCreated='SOURCE_CREATED',
-                               pageCreated='PAGE_CREATED',
-                               lastMod='LAST_MOD')
+                               needsUpdate='NEEDS_UPDATE')

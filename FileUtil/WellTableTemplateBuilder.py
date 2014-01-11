@@ -1,5 +1,6 @@
 __author__ = 'sulantha'
 from DBUtil.WellDataAccessor import WellDataAccessor
+from DBUtil.PageUploadTableUpdater import PageUploadTableUpdater
 from Config import WellDataConfig, FileConfig
 from FileHandler import FileHandler
 
@@ -38,7 +39,8 @@ class WellTableTemplateBuilder:
                     wikiText += '| ' + str(item) + '\n'
                 wikiText += '|-\n'
             wikiText += '|}'
-            self.fileHandler.writeWikiSourceFile(FileConfig.templateFilePath, self.wellID+'_'+dataType+'_Template.txt', 'Template:'+self.wellID+'-'+dataType, wikiText)
+            templateFile = self.fileHandler.writeWikiSourceFile(FileConfig.templateFilePath, self.wellID+'_'+dataType+'_Template.txt', 'Template:'+self.wellID+'-'+dataType, wikiText)
+            PageUploadTableUpdater.addEntry(self.wellID, templateFile)
 
     def buildPrimaryTemplates(self):
         wellPrimaryData = self.wellDataAccessor.getWellPrimaryData()
@@ -79,7 +81,8 @@ class WellTableTemplateBuilder:
         wikiText += '|-\n'
         wikiText += '|}'
 
-        self.fileHandler.writeWikiSourceFile(FileConfig.templateFilePath, self.wellID+'_Details_Template.txt', 'Template:'+self.wellID+'-Details', wikiText)
+        templateFile = self.fileHandler.writeWikiSourceFile(FileConfig.templateFilePath, self.wellID+'_Details_Template.txt', 'Template:'+self.wellID+'-Details', wikiText)
+        PageUploadTableUpdater.addEntry(self.wellID, templateFile)
 
     def buildTableTemplates(self):
         self.buildSecondaryTemplates()

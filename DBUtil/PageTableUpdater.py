@@ -4,16 +4,24 @@ from DBUtil.DBClient import DBClient
 
 
 class PageTableUpdater:
-    dbClient = None
 
     def __init__(self):
-        self.dbClient = DBClient()
+        pass
 
-    def updateEntity(self, entityName, entityTable, entityColumnName):
+    @staticmethod
+    def updateEntity(entityName, entityTable, entityColumnName):
         sqlStr = ('INSERT IGNORE INTO ' + mPTConfig.managerPageTableName +
                   ' (' + mPTConfig.managerPageTableColumns['pageTitle'] +
                   ', ' + mPTConfig.managerPageTableColumns['typeColumn'] + ')' +
                   ' (SELECT DISTINCT ' + entityColumnName + ' AS ' + mPTConfig.managerPageTableColumns['pageTitle'] +
                   ', \'' + entityName + '\' AS ' + mPTConfig.managerPageTableColumns['typeColumn'] +
-                  ' FROM ' + entityTable + ')')
-        print self.dbClient.executeQuery(sqlStr, numOfResults=1)
+                  ' FROM ' + entityTable + ' WHERE ' + entityColumnName + ' IS NOT NULL )')
+        print DBClient.executeQuery(sqlStr, numOfResults=1)
+
+    @staticmethod
+    def setUpdateSuccess(entityId):
+        sqlStr = ('UPDATE ' + mPTConfig.managerPageTableName + ' SET ' +
+                  mPTConfig.managerPageTableColumns['needsUpdate'] + ' = 0 WHERE ' +
+                  mPTConfig.managerPageTableColumns['pageTitle'] + ' = \'' + str(entityId) + '\'')
+
+        print DBClient.executeQuery(sqlStr, numOfResults=1)

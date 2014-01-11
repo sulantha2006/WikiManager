@@ -1,6 +1,7 @@
 __author__ = 'sulantha'
 from Config import FileConfig
 from FileHandler import FileHandler
+from DBUtil.PageUploadTableUpdater import PageUploadTableUpdater
 
 
 class WellSourceBuilder:
@@ -22,4 +23,5 @@ class WellSourceBuilder:
         source += '== Waste Data ==\n'
         source += '{{' + self.wellID + '-waste}}\n'
         source += '__NOEDITSECTION__\n'
-        self.fileHandler.writeWikiSourceFile(FileConfig.mainSourcePath, self.wellID+'_main.txt', self.wellID, source)
+        sourceFile = self.fileHandler.writeWikiSourceFile(FileConfig.mainSourcePath, self.wellID+'_main.txt', self.wellID, source)
+        PageUploadTableUpdater.addEntry(self.wellID, sourceFile)
