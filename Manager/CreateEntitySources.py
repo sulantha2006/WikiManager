@@ -14,3 +14,9 @@ for entity in newIds:
             sourceBuilder = WellSourceBuilder(wellID)
             sourceBuilder.buildMainSource()
             PageTableUpdater.setUpdateSuccess(wellID)
+    elif entity == 'county':
+        pass
+    elif entity == 'municipality':
+        pass
+    elif entity == 'operator':
+        pass
