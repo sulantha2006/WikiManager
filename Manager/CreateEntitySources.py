@@ -1,8 +1,8 @@
+from FileUtil.SourceBuilders import WellSourceBuilder, WellTableTemplateBuilder
+
 __author__ = 'sulantha'
 from DBUtil.PageTableAccesor import PageTableAccessor
 from DBUtil.PageTableUpdater import PageTableUpdater
-from FileUtil.WellTableTemplateBuilder import WellTableTemplateBuilder
-from FileUtil.WellSourceBuilder import WellSourceBuilder
 
 newIds = PageTableAccessor.getNewIds()
 
