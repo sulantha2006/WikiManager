@@ -55,6 +55,8 @@ class WellTableTemplateBuilder:
         if wellPrimaryData['LATITUDE_DECIMAL'] is not None and wellPrimaryData['LONGITUDE_DECIMAL'] is not None:
             wikiText += '| style="width: 50%; height=100%; align=center" rowspan="' + str(numberOfRows+1) + '" | {{#display_map: ' + str(wellPrimaryData['LATITUDE_DECIMAL'])+', ' + str(wellPrimaryData['LONGITUDE_DECIMAL']) + ' | width=100% | height=100% }} \n'
             wikiText += '|-\n'
+        else:
+            wikiText += '|-\n'
         if wellPrimaryData['WELL_COUNTY'] != 'NULL':
             wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['WELL_COUNTY'] + ': [[' + wellPrimaryData['WELL_COUNTY'] + ']]\n'
             wikiText += '|-\n'
