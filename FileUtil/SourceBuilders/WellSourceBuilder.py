@@ -1,6 +1,6 @@
 __author__ = 'sulantha'
 from Config import FileConfig
-from FileHandler import FileHandler
+from FileUtil.FileHandler import FileHandler
 from DBUtil.PageUploadTableUpdater import PageUploadTableUpdater
 
 

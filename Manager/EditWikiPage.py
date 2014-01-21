@@ -12,7 +12,10 @@ loginSuccess = webBot.login()
 
 if loginSuccess:
     filesToBeUploaded = PageUploadTableAccessor.getUploadFiles()
+    count = 1
+    total = len(filesToBeUploaded)
     for (fileId, textFile) in filesToBeUploaded:
+        print 'Processing ' + str(count) + '/' + str(total) + ':'
         [pageTitle, pageBody] = fileHandler.getWikiSourceFileContent(textFile)
         editSuccess = webBot.editPage(pageTitle, pageBody)
         if editSuccess:
@@ -20,6 +23,7 @@ if loginSuccess:
             print 'Edit/Create Page Successful. New Page can be found at : '+pageTitle
         else:
             print 'Edit operation failed. Status : '+editSuccess
+        count += 1
 else:
     print 'Login Error. Status : '+loginSuccess
 

@@ -25,5 +25,9 @@ class WellDataAccessor:
         for table in wdc.wellDetailsTables:
             sqlStr = 'SELECT ' + wdc.wellDetailsTablesSelectionColumns[table] + ' FROM ' + table + ' WHERE ' + \
                      wdc.wellDataDBTableIDs[table] + ' = \'' + self.wellID + '\''
-            dataDict.update(self.dbClient.executeDictionaryQuery(sqlStr)[0])
+            try:
+                data = self.dbClient.executeDictionaryQuery(sqlStr)[0]
+            except IndexError:
+                data = {x.strip(): 'NULL' for x in str.split(wdc.wellDetailsTablesSelectionColumns[table], ',')}
+            dataDict.update(data)
         return dataDict

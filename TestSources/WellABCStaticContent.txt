@@ -1,4 +1,0 @@
-Template:WellABCStaticContent
---ENDTITLE--
-== Static Content Section ==
-{{StaticContentMainTemplate|name=ABC|operator=XYZ}}

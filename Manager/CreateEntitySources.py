@@ -1,4 +1,5 @@
-from FileUtil.SourceBuilders import WellSourceBuilder, WellTableTemplateBuilder
+from FileUtil.SourceBuilders import WellSourceBuilder
+from FileUtil.SourceBuilders import WellTableTemplateBuilder
 
 __author__ = 'sulantha'
 from DBUtil.PageTableAccesor import PageTableAccessor
@@ -9,9 +10,9 @@ newIds = PageTableAccessor.getNewIds()
 for entity in newIds:
     if entity == 'wells':
         for wellID in newIds[entity]:
-            tableTemplateBuilder = WellTableTemplateBuilder(wellID)
+            tableTemplateBuilder = WellTableTemplateBuilder.WellTableTemplateBuilder(wellID)
             tableTemplateBuilder.buildTableTemplates()
-            sourceBuilder = WellSourceBuilder(wellID)
+            sourceBuilder = WellSourceBuilder.WellSourceBuilder(wellID)
             sourceBuilder.buildMainSource()
             PageTableUpdater.setUpdateSuccess(wellID)
     elif entity == 'county':
