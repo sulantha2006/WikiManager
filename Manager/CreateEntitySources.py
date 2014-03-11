@@ -7,6 +7,8 @@ from FileUtil.SourceBuilders import MunicipalitySourceBuilder
 from FileUtil.SourceBuilders import MunicipalityTableTemplateBuilder
 from FileUtil.SourceBuilders import CountySourceBuilder
 from FileUtil.SourceBuilders import CountyTableTemplateBuilder
+from FileUtil.SourceBuilders import OperatorSourceBuilder
+from FileUtil.SourceBuilders import OperatorTableTemplateBuilder
 
 newIds = PageTableAccessor.getNewIds()
 
@@ -33,4 +35,9 @@ for entity in newIds:
             sourceBuilder.buildMainSource()
             PageTableUpdater.setUpdateSuccess(munID)
     elif entity == 'operator':
-        pass
+        for operatorID in newIds[entity]:
+            tableTemplateBuilder = OperatorTableTemplateBuilder.OperatorTableTemplateBuilder(operatorID)
+            tableTemplateBuilder.buildTableTemplates()
+            sourceBuilder = OperatorSourceBuilder.OperatorSourceBuilder(operatorID)
+            sourceBuilder.buildMainSource()
+            PageTableUpdater.setUpdateSuccess(operatorID)
