@@ -58,10 +58,10 @@ class WellTableTemplateBuilder:
         else:
             wikiText += '|-\n'
         if wellPrimaryData['WELL_COUNTY'] != 'NULL':
-            wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['WELL_COUNTY'] + ': [[' + wellPrimaryData['WELL_COUNTY'] + ']]\n'
+            wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['WELL_COUNTY'] + ': [[' + wellPrimaryData['COUNTY_FULL_NAME'] + ']]\n'
             wikiText += '|-\n'
         if wellPrimaryData['WELL_MUNICIPALITY'] != 'NULL':
-            wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['WELL_MUNICIPALITY'] + ': [[' + wellPrimaryData['WELL_MUNICIPALITY'] + ']]\n'
+            wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['WELL_MUNICIPALITY'] + ': [[' + wellPrimaryData['MUNICIPALITY_FULL_NAME'] + ']]\n'
             wikiText += '|-\n'
         if wellPrimaryData['OPERATOR_NAME'] != 'NULL':
             wikiText += '| ' + WellDataConfig.wellDetailsDataProperColumnNames['OPERATOR_NAME'] + ': [[' + wellPrimaryData['OPERATOR_NAME'] + ']]\n'

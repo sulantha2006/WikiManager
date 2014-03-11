@@ -22,6 +22,6 @@ class PageTableUpdater:
     def setUpdateSuccess(entityId):
         sqlStr = ('UPDATE ' + mPTConfig.managerPageTableName + ' SET ' +
                   mPTConfig.managerPageTableColumns['needsUpdate'] + ' = 0 WHERE ' +
-                  mPTConfig.managerPageTableColumns['pageTitle'] + ' = \'' + str(entityId) + '\'')
+                  mPTConfig.managerPageTableColumns['pageTitle'] + ' = %s')
 
-        print DBClient.executeQuery(sqlStr, numOfResults=1)
+        print DBClient.directExeQuery(sqlStr, entityId)

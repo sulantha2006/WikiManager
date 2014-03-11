@@ -30,3 +30,12 @@ class DBClient:
             return cursor.fetchmany(kwargs['numOfResults'])
         else:
             return cursor.fetchall()
+
+    @staticmethod
+    def directExeQuery(sqlStr, *args):
+        con = msqlDB.connect(dbConfig.DBParams['host'], dbConfig.DBParams['user'], dbConfig.DBParams['userPass'],
+                             dbConfig.DBParams['dbName'])
+        con.autocommit(True)
+        cursor = con.cursor()
+        cursor.execute(sqlStr, args)
+        return cursor.fetchall()

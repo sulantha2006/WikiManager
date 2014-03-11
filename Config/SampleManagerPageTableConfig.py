@@ -7,7 +7,7 @@ entityTableDictionary = dict(wells='well_complete',
                              operator='operator')
 entityColumnDictionary = dict(wells='WELL_API_COUNTY_ID',
                               county='county_name',
-                              municipality='municipality_name',
+                              municipality='CONCAT(municipality_name_long, \', \', county_name, \', \', state_code)',
                               operator='operator_name')
 
 managerPageTableName = 'wikiManagerPages'
